@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="canil">
+	<table_structure name="acompanhamento">
+		<field Field="id_acompanhamento" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="cio" Type="tinyint(1)" Null="YES" Key="" Default="0" Extra="" Comment="" />
+		<field Field="data_acompanhamento" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="fezes" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="urina" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="comida" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="vomito" Type="tinyint(1)" Null="YES" Key="" Default="0" Extra="" Comment="" />
+		<field Field="id_canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="cpf" Type="varchar(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="banho" Type="tinyint(1)" Null="YES" Key="" Default="0" Extra="" Comment="" />
+		<key Table="acompanhamento" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_acompanhamento" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="acompanhamento" Non_unique="1" Key_name="id_canino" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="acompanhamento" Non_unique="1" Key_name="acompanhamento_ibfk_3" Seq_in_index="1" Column_name="fezes" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="acompanhamento" Non_unique="1" Key_name="acompanhamento_ibfk_4" Seq_in_index="1" Column_name="urina" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="acompanhamento" Non_unique="1" Key_name="acompanhamento_ibfk_5" Seq_in_index="1" Column_name="comida" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="acompanhamento" Non_unique="1" Key_name="acompanhamento_ibfk_1" Seq_in_index="1" Column_name="cpf" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="acompanhamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="81920" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:52" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="acompanhamento">
+	</table_data>
+	<table_structure name="atividade">
+		<field Field="id_atividade" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_atividade" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="atividade" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_atividade" Collation="A" Cardinality="6" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="atividade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="6" Avg_row_length="2730" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="7" Create_time="2016-10-11 10:42:52" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="atividade">
+	<row>
+		<field name="id_atividade">1</field>
+		<field name="tipo_atividade">Faro de Entorpecentes</field>
+	</row>
+	<row>
+		<field name="id_atividade">2</field>
+		<field name="tipo_atividade">Faro de Explosivos</field>
+	</row>
+	<row>
+		<field name="id_atividade">3</field>
+		<field name="tipo_atividade">Busca e LocalizaÃƒÂ§ÃƒÂ£o de Pessoas</field>
+	</row>
+	<row>
+		<field name="id_atividade">4</field>
+		<field name="tipo_atividade">Busca e Captura de Pessoas</field>
+	</row>
+	<row>
+		<field name="id_atividade">5</field>
+		<field name="tipo_atividade">Agility</field>
+	</row>
+	<row>
+		<field name="id_atividade">6</field>
+		<field name="tipo_atividade">Guarda</field>
+	</row>
+	</table_data>
+	<table_structure name="atividade_canino">
+		<field Field="id_atividade" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="atividade_canino" Non_unique="1" Key_name="id_atividade" Seq_in_index="1" Column_name="id_atividade" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="atividade_canino" Non_unique="1" Key_name="id_canino" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="atividade_canino" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:42:53" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="atividade_canino">
+	</table_data>
+	<table_structure name="box">
+		<field Field="id_box" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="cod_box" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="solario" Type="tinyint(1)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="agua_encanada" Type="tinyint(1)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="localizacao" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="box" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_box" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="box" Non_unique="1" Key_name="localizacao" Seq_in_index="1" Column_name="localizacao" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="box" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:42:54" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="box">
+	<row>
+		<field name="id_box">1</field>
+		<field name="cod_box">A1</field>
+		<field name="solario">1</field>
+		<field name="agua_encanada">1</field>
+		<field name="localizacao" xsi:nil="true" />
+	</row>
+	</table_data>
+	<table_structure name="canino">
+		<field Field="id_canino" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_canino" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="data_nascimento" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="pedigree" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="microchip" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="origem" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="sexo" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_raca" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_box" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="cpf" Type="varchar(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="cor" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="canino" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="canino" Non_unique="1" Key_name="id_raca" Seq_in_index="1" Column_name="id_raca" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="canino" Non_unique="1" Key_name="id_box" Seq_in_index="1" Column_name="id_box" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="canino" Non_unique="1" Key_name="id_sexo" Seq_in_index="1" Column_name="sexo" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="canino" Non_unique="1" Key_name="canino_ibfk_5" Seq_in_index="1" Column_name="origem" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="canino" Non_unique="1" Key_name="canino_ibfk_1" Seq_in_index="1" Column_name="cpf" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="canino" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="81920" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:54" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="canino">
+	</table_data>
+	<table_structure name="caracteristica_medicamento">
+		<field Field="id_caracteristica" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sigla_caracteristica" Type="varchar(10)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="caracteristica_medicamento" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="caracteristica_medicamento" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_caracteristica" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="caracteristica_medicamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:55" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="caracteristica_medicamento">
+	</table_data>
+	<table_structure name="categoria">
+		<field Field="id_categoria" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="descricao" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="categoria" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_categoria" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="categoria" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:55" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="categoria">
+	</table_data>
+	<table_structure name="clima">
+		<field Field="id_clima" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_clima" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="clima" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_clima" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="clima" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:56" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="clima">
+	</table_data>
+	<table_structure name="comida">
+		<field Field="id_comida" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="quantidade_comida" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="comida" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_comida" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="comida" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:56" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="comida">
+	</table_data>
+	<table_structure name="desempenho">
+		<field Field="id_desempenho" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_desempenho" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="valor_desempenho" Type="float" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="desempenho" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_desempenho" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="desempenho" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:56" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="desempenho">
+	</table_data>
+	<table_structure name="estado">
+		<field Field="id_estado" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_estado" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="sigla_estado" Type="varchar(2)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_pais" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="estado" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_estado" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="estado" Non_unique="1" Key_name="FK_estado_pais" Seq_in_index="1" Column_name="id_pais" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="estado" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:57" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="estado">
+	</table_data>
+	<table_structure name="exercicio">
+		<field Field="id_exercicio" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_exercicio" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="objetivo" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="metodologia" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="exercicio" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_exercicio" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="exercicio" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:57" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="exercicio">
+	</table_data>
+	<table_structure name="exercicio_atividade">
+		<field Field="id_exercicio" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_atividade" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="exercicio_atividade" Non_unique="1" Key_name="id_exercicio" Seq_in_index="1" Column_name="id_exercicio" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="exercicio_atividade" Non_unique="1" Key_name="id_atividade" Seq_in_index="1" Column_name="id_atividade" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="exercicio_atividade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:42:58" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="exercicio_atividade">
+	</table_data>
+	<table_structure name="exercicio_treinamento">
+		<field Field="id_treinamento" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_exercicio" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_desempenho" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="exercicio_treinamento" Non_unique="1" Key_name="id_treinamento" Seq_in_index="1" Column_name="id_treinamento" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="exercicio_treinamento" Non_unique="1" Key_name="id_exercicio" Seq_in_index="1" Column_name="id_exercicio" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="exercicio_treinamento" Non_unique="1" Key_name="exercicio_treinamento_ibfk_3" Seq_in_index="1" Column_name="id_desempenho" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="exercicio_treinamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="49152" Data_free="0" Create_time="2016-10-11 10:42:58" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="exercicio_treinamento">
+	</table_data>
+	<table_structure name="fezes">
+		<field Field="id_fezes" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_fezes" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="fezes" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_fezes" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="fezes" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:58" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="fezes">
+	</table_data>
+	<table_structure name="forma_farmaceutica">
+		<field Field="id_forma_farm" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sigla_forma_farm" Type="varchar(5)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="forma_farmaceutica" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="forma_farmaceutica" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_forma_farm" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="forma_farmaceutica" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:59" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="forma_farmaceutica">
+	</table_data>
+	<table_structure name="fotos">
+		<field Field="mime" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="nome_foto" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="conteudo" Type="longblob" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="id_canino" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="fotos" Non_unique="1" Key_name="foto_fk_1" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="fotos" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2016-10-11 10:42:59" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="fotos">
+	</table_data>
+	<table_structure name="funcionalidade">
+		<field Field="id_funcionalidade" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_funcionalidade" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="caminho" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_menu" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="funcionalidade" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_funcionalidade" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="funcionalidade" Non_unique="1" Key_name="id_menu" Seq_in_index="1" Column_name="id_menu" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="funcionalidade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:42:59" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="funcionalidade">
+	</table_data>
+	<table_structure name="localizacao">
+		<field Field="id_localizacao" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="endereco" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="bairro" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="cidade" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="uf" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="localizacao" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_localizacao" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="localizacao" Non_unique="1" Key_name="localizacao_ibfk_1" Seq_in_index="1" Column_name="uf" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="localizacao" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:00" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="localizacao">
+	</table_data>
+	<table_structure name="material">
+		<field Field="quantidade" Type="text" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="destino" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_tipo" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="id_trabalho" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="id_material" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="descricao_material" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="material" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_material" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="material" Non_unique="1" Key_name="id_trabalho" Seq_in_index="1" Column_name="id_trabalho" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="material" Non_unique="1" Key_name="id_tipo" Seq_in_index="1" Column_name="id_tipo" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="material" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:00" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="material">
+	</table_data>
+	<table_structure name="menu">
+		<field Field="id_menu" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="titulo" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="menu_pai" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="menu" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_menu" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="menu" Non_unique="1" Key_name="menu_fk_1" Seq_in_index="1" Column_name="menu_pai" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="menu" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:01" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="menu">
+	</table_data>
+	<table_structure name="origem">
+		<field Field="id_origem" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="origem_canino" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="origem" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_origem" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="origem" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:02" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="origem">
+	</table_data>
+	<table_structure name="pais">
+		<field Field="id_pais" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_pais" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="sigla_pais" Type="varchar(3)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="pais" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_pais" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="pais" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:02" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="pais">
+	</table_data>
+	<table_structure name="parentesco">
+		<field Field="id_canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="parentesco_id" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="tipo_parentesco" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="parentesco" Non_unique="1" Key_name="id_canino" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="parentesco" Non_unique="1" Key_name="parentesco_id" Seq_in_index="1" Column_name="parentesco_id" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="parentesco" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:43:02" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="parentesco">
+	</table_data>
+	<table_structure name="perfil">
+		<field Field="id_perfil" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_perfil" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="perfil" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_perfil" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="perfil" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:03" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="perfil">
+	</table_data>
+	<table_structure name="perfil_funcionalidade">
+		<field Field="id_perfil" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_funcionalidade" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="perfil_funcionalidade" Non_unique="1" Key_name="id_perfil" Seq_in_index="1" Column_name="id_perfil" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="perfil_funcionalidade" Non_unique="1" Key_name="perfil_funcionalidade_ibfk_2" Seq_in_index="1" Column_name="id_funcionalidade" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="perfil_funcionalidade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:43:04" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="perfil_funcionalidade">
+	</table_data>
+	<table_structure name="pessoa">
+		<field Field="cpf" Type="varchar(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="email" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="nome_pessoa" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="senha" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_perfil" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="pessoa" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="cpf" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="pessoa" Non_unique="1" Key_name="id_perfil" Seq_in_index="1" Column_name="id_perfil" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="pessoa" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2016-10-11 10:43:04" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="pessoa">
+	</table_data>
+	<table_structure name="raca">
+		<field Field="id_raca" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_raca" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="padrao_fci" Type="int(11)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="data_padrao" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="raca" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_raca" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="raca" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:10" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="raca">
+	</table_data>
+	<table_structure name="sexo">
+		<field Field="id_sexo" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sexo" Type="varchar(10)" Null="YES" Key="" Default="0" Extra="" Comment="" />
+		<key Table="sexo" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_sexo" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="sexo" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:10" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="sexo">
+	</table_data>
+	<table_structure name="telefone_contato">
+		<field Field="telefone_contato" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="cpf_pessoa" Type="varchar(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="telefone_contato" Non_unique="1" Key_name="telefone_ibfk_1" Seq_in_index="1" Column_name="cpf_pessoa" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="telefone_contato" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2016-10-11 10:43:10" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="telefone_contato">
+	</table_data>
+	<table_structure name="terreno">
+		<field Field="id_terreno" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="tipo_terreno" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="terreno" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_terreno" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="terreno" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:11" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="terreno">
+	</table_data>
+	<table_structure name="tipo_material">
+		<field Field="id_tipo" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="descricao" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="tipo_material" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_tipo" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="tipo_material" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:11" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="tipo_material">
+	</table_data>
+	<table_structure name="tipo_medicamento">
+		<field Field="id_tipo_med" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="nome_med" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="substancia" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="forma_farm" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="caracteristica" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="via_adm" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_categoria" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="tipo_medicamento" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_tipo_med" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="tipo_medicamento" Non_unique="1" Key_name="id_categoria" Seq_in_index="1" Column_name="id_categoria" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="tipo_medicamento" Non_unique="1" Key_name="tipo_medicamento_ibfk_2" Seq_in_index="1" Column_name="forma_farm" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="tipo_medicamento" Non_unique="1" Key_name="tipo_medicamento_ibfk_3" Seq_in_index="1" Column_name="caracteristica" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="tipo_medicamento" Non_unique="1" Key_name="tipo_medicamento_ibfk_4" Seq_in_index="1" Column_name="via_adm" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="tipo_medicamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="65536" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:12" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="tipo_medicamento">
+	</table_data>
+	<table_structure name="trabalho">
+		<field Field="data_trabalho" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="endereco" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="cidade" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="bairro" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="uf" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_trabalho" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="documento_origem" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_atividade" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="trabalho" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_trabalho" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="trabalho" Non_unique="1" Key_name="id_atividade" Seq_in_index="1" Column_name="id_atividade" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="trabalho" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:12" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="trabalho">
+	</table_data>
+	<table_structure name="trabalho_canino">
+		<field Field="id_trabalho" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="trabalho_canino" Non_unique="1" Key_name="FK_trabalho_canino_trabalho" Seq_in_index="1" Column_name="id_trabalho" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="trabalho_canino" Non_unique="1" Key_name="FK_trabalho_canino_canino" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="trabalho_canino" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:43:13" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="trabalho_canino">
+	</table_data>
+	<table_structure name="treinamento">
+		<field Field="local" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="data_treinamento" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_treinamento" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="id_terreno" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="horario_inicio" Type="time" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_clima" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="horario_termino" Type="time" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="treinamento" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_treinamento" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="treinamento" Non_unique="1" Key_name="id_terreno" Seq_in_index="1" Column_name="id_terreno" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="treinamento" Non_unique="1" Key_name="id_canino" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="treinamento" Non_unique="1" Key_name="treinamento_ibfk_4" Seq_in_index="1" Column_name="id_clima" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="treinamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="49152" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:13" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="treinamento">
+	</table_data>
+	<table_structure name="urina">
+		<field Field="id_urina" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="aparencia_urina" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="urina" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_urina" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="urina" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:14" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="urina">
+	</table_data>
+	<table_structure name="veterinaria">
+		<field Field="id_veterinaria" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="data_procedimento" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="anamnese" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="diagnostico" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="tratamento" Type="text" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="canino" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<key Table="veterinaria" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_veterinaria" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="veterinaria" Non_unique="1" Key_name="veterinaria_fk_1" Seq_in_index="1" Column_name="canino" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="veterinaria" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:15" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="veterinaria">
+	</table_data>
+	<table_structure name="veterinaria_medicamento">
+		<field Field="qtd_medicamento" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="id_veterinaria" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="id_tipo_med" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="data_medicacao" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="veterinaria_medicamento" Non_unique="1" Key_name="id_veterinaria" Seq_in_index="1" Column_name="id_veterinaria" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="veterinaria_medicamento" Non_unique="1" Key_name="id_tipo_med" Seq_in_index="1" Column_name="id_tipo_med" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="veterinaria_medicamento" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2016-10-11 10:43:15" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="veterinaria_medicamento">
+	</table_data>
+	<table_structure name="via_administracao">
+		<field Field="id_via_adm" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sigla_via_adm" Type="varchar(10)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="via_adm" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="via_administracao" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_via_adm" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="via_administracao" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2016-10-11 10:43:16" Collation="utf8_bin" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="via_administracao">
+	</table_data>
+</database>
+</mysqldump>
