@@ -27,7 +27,7 @@ class CaninoTabela extends DataSet implements ITabela{
         return parent::findAll();
     }
 
-    public static function insert($classe): string {
+    public static function insert($classe){
         
     }
 
