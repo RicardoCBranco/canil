@@ -1,38 +1,36 @@
 <?php
 namespace CasteloBranco\Canil\Module\Canino\Model;
 use CasteloBranco\Canil\Interfaces\ITabela;
-use CasteloBranco\Canil\Data\DataSet;
 
 /**
  * Description of CaninoTabela
  *
  * @author Ricardo
  */
-class CaninoTabela extends DataSet implements ITabela{
-    
-    public static function getInstancia() {
-        parent::setTabela('canino', "id_canino");
+class CaninoTabela implements ITabela{
+    private $ds;
+    public function __construct() {
+        $this->ds = new \CasteloBranco\Canil\Data\ClientDataSet("canino");
     }
     
-    public static function delete(array $id) {
-        
+    public function delete(array $id) {
+        $this->ds->delete($id);
     }
 
-    public static function find(array $id) {
-        
+    public function find(array $id) {
+        return $this->ds->find($id);
     }
 
-    public static function findAll() {
-        self::getInstancia();
-        return parent::findAll();
+    public function findAll() {
+        return $this->ds->findAll();
     }
 
-    public static function insert($classe){
-        
+    public function insert($classe){
+        return $this->ds->insert($classe);
     }
 
-    public static function update($classe) {
-        
+    public function update($classe) {
+        $this->ds->update($classe);
     }
 
 }
