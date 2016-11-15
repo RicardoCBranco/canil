@@ -15,7 +15,9 @@ class CaninoTabelaTest extends PHPUnit{
     }
     
     public function testFindAll(){
-        $this->assertInternalType("array", $this->table->findAll());
+        $tab = $this->table->findAll();
+        var_dump($tab);
+        $this->assertInternalType("array", $tab);
     }
     
     public function testInsert(){

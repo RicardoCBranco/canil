@@ -1,12 +1,11 @@
 <?php
-namespace CasteloBranco\Canil\Chain\Table;
-use CasteloBranco\Canil\Chain\Implement\ISqlData;
+namespace CasteloBranco\Canil\Data\Table;
 /**
  * Description of SelectData
  *
  * @author Ricardo
  */
-class SelectData implements ISqlData{
+class SelectData extends \CasteloBranco\Canil\Data\DataSet{
     private $table;
     private $concat = array();
     private $cols = array();
@@ -180,5 +179,15 @@ class SelectData implements ISqlData{
     
     public function setLimit(array $limit){
         $this->limit = array_merge($this->limit,$limit);
+    }
+    
+    public function row($sql = NULL) {
+        $sql .= $this->getComando();
+        return parent::row($sql);
+    }
+
+    public function table($sql = NULL) {
+        $sql .= $this->getComando();
+        return parent::table($sql);
     }
 }

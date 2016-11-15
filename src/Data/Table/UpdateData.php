@@ -1,12 +1,11 @@
 <?php
-namespace CasteloBranco\Canil\Chain\Table;
-use CasteloBranco\Canil\Chain\Implement\ISqlData;
+namespace CasteloBranco\Canil\Data\Table;
 /**
  * Description of UpdateData
  *
  * @author Ricardo
  */
-class UpdateData implements ISqlData{
+class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
     private $tblName;
     private $vals = array();
     private $cols = array();
@@ -28,7 +27,7 @@ class UpdateData implements ISqlData{
         $cols = NULL;
         if(count($this->cols)>0){
             for ($i=0; $i<count($this->cols); $i++){
-                $cols .= $this->cols[$i]." = ".$this->vals[$i].",";
+                $cols .= $this->cols[$i]." = :".$this->vals[$i].",";
             }
         }
         return $cols;
@@ -88,4 +87,10 @@ class UpdateData implements ISqlData{
     public function setWhere(array $where){
         $this->where = array_merge($this->where,$where);
     }
+    
+    public static function execute($sql = NULL) {
+        $sql .= $this->getComando();
+        return parent::execute($sql);
+    }
+
 }

@@ -1,12 +1,11 @@
 <?php
-namespace CasteloBranco\Canil\Chain\Table;
-use \CasteloBranco\Canil\Chain\Implement\ISqlData;
+namespace CasteloBranco\Canil\Data\Table;
 /**
  * Description of InsertData
  *
  * @author Ricardo
  */
-class InsertData implements ISqlData{
+class InsertData extends \CasteloBranco\Canil\Data\DataSet{
     private $tblName;
     private $cols = array();
     private $vals = array();
@@ -54,5 +53,10 @@ class InsertData implements ISqlData{
         }
         $cmd .= ")";
         return $cmd;
+    }
+    
+    public static function execute($sql = NULL) {
+        $sql .= $this->getComando();
+        return parent::execute($sql);
     }
 }

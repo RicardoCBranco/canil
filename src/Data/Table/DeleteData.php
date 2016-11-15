@@ -1,13 +1,11 @@
 <?php
-namespace CasteloBranco\Canil\Chain\Table;
-use CasteloBranco\Canil\Chain\Implement\ISqlData;
-
+namespace CasteloBranco\Canil\Data\Table;
 /**
  * Description of DeleteData
  *
  * @author Ricardo
  */
-class DeleteData implements ISqlData{
+class DeleteData extends \CasteloBranco\Canil\Data\DataSet{
     private $tblName;
     private $cols = array();
     private $join = array();
@@ -126,5 +124,10 @@ class DeleteData implements ISqlData{
             return " ";
         }
         return NULL;
+    }
+    
+    public static function execute($sql = NULL) {
+        $sql .= $this->getComando();
+        return parent::execute($sql);
     }
 }

@@ -7,26 +7,26 @@ namespace CasteloBranco\Canil\Data;
  * @author Antonio Ricardo Andrade Castelo Branco
  */
 class DataSet {
-    private static $params = array();
-    private static $values = array();
+    private $params = array();
+    private $values = array();
     
-    public static function setParams(array $params) {
-        self::$params = array();
-        self::$params = $params;
+    public function setParams(array $params) {
+        $this->$params = array();
+        $this->$params = $params;
     }
 
-    public static function setValues(array $values) {
-        self::$values = array();
-        self::$values = $values;
+    public function setValues(array $values) {
+        $this->$values = array();
+        $this->$values = $values;
     }
 
         
-    private static function init($sql){       
+    private function init($sql){       
         try{
             $con = Conexao::getConection();
             $stmt = $con->prepare($sql);
-            foreach (self::$values as $key => $values){
-                $stmt->bindValue($key,$values,self::$params[$key]);
+            foreach ($this->$values as $key => $values){
+                $stmt->bindValue($key,$values,$this->$params[$key]);
             }
             $stmt->execute();
             return $stmt;
@@ -35,15 +35,15 @@ class DataSet {
         }
     }
     
-    public static function row($sql){
-        $stmt = self::init($sql);
+    public function row($sql){
+        $stmt = $this->init($sql);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $row;
         
     }
     
     public static function table($sql){
-        $table = self::init($sql);
+        $table = $this->init($sql);
         return $table->fetchAll(\PDO::FETCH_OBJ);
     }
     
@@ -51,8 +51,8 @@ class DataSet {
         try{
             $con = Conexao::getConection();
             $stmt = $con->prepare($sql);
-            foreach (self::$values as $key => $values){
-                $stmt->bindValue($key,$values,self::$params[$key]);
+            foreach ($this->values as $key => $values){
+                $stmt->bindValue($key,$values,$this->params[$key]);
             }
             $stmt->execute();
             return $con->lastInsertId();

@@ -8,29 +8,22 @@ use CasteloBranco\Canil\Interfaces\ITabela;
  * @author Ricardo
  */
 class CaninoTabela implements ITabela{
-    private $ds;
-    public function __construct() {
-        $this->ds = new \CasteloBranco\Canil\Data\ClientDataSet("canino");
-    }
     
-    public function delete(array $id) {
-        $this->ds->delete($id);
+    public static function delete(array $id) {
     }
 
-    public function find(array $id) {
-        return $this->ds->find($id);
+    public static function find(array $id) {
     }
 
-    public function findAll() {
-        return $this->ds->findAll();
+    public static function findAll() {
+        $ds = new \CasteloBranco\Canil\Data\Table\SelectData("canino");
+        return $ds->table();
     }
 
-    public function insert($classe){
-        return $this->ds->insert($classe);
+    public static function insert($classe){
     }
 
-    public function update($classe) {
-        $this->ds->update($classe);
+    public static function update($classe) {
     }
 
 }

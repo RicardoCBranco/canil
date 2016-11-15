@@ -8,24 +8,24 @@ namespace CasteloBranco\Canil\Interfaces;
  * @author Antonio Ricardo Andrade Castelo Branco
  */
 interface ITabela {
-   public function insert($classe);
+   public static function insert($classe);
    /**
     * 
     * @param type $classe
     */
-   public function update($classe);
+   public static function update($classe);
    /**
     * 
     * @param array $id
     */
-   public function delete(array $id);
+   public static function delete(array $id);
    /**
     * 
     * @param array $id
     */
-   public function find(array $id);
+   public static function find(array $id);
    /**
     * 
     */
-   public function findAll();
+   public static function findAll();
 }
