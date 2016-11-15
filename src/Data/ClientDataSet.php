@@ -45,7 +45,6 @@ class ClientDataSet {
         $sql = new \CasteloBranco\Canil\Chain\Table\InsertData($this->table);
         $sql->setCols(array_keys($classe->getValues()));
         $sql->setVals(array_keys($classe->getValues()));
-        
         DataSet::setValues($classe->getValues());
         DataSet::setParams($classe->getParams());
         return DataSet::execute($sql->getComando());

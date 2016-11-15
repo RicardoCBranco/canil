@@ -46,7 +46,7 @@ class InsertData implements ISqlData{
                 if(is_array($row)){
                    $values .= $this->getVals($row);
                 }else{
-                    $values .= $row;   
+                    $values .= ":$row";
                 }
                 $values .= ",";
             }
