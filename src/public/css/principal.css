@@ -1,0 +1,81 @@
+@CHARSET "UTF-8";
+*{box-sizing:border-box;}
+html{font:14/1.4 Sans-Serif;}
+h1, h2, h3{font-family:Arial; color:maroon; text-align: center;}
+#bem_vindo{font-style: italic; margin-left: 10px;}
+#pagina_principal{background-color: slategray;}
+blockquote{text-align: center;}
+/*
+*Estilo para tabela
+*/
+table {	border-collapse:collapse; background:#EFF4FB; border-left:1px solid #686868;
+		border-right:1px solid #686868;font:0.8em/145% 'Trebuchet MS',helvetica,arial,verdana;
+		color: #333; margin:0 5% 0 5%; width:90%;}
+td, th {padding:5px;}
+caption {padding: 0 0 .5em 0;text-align: left;font-size: 1.4em; font-weight: bold;
+		text-transform: uppercase;color: #333;background: transparent;}
+/* =links
+----------------------------------------------- */
+table a {color:#950000; text-decoration:none;}
+table a:link {}
+table a:visited {font-weight:normal;color:#950000;text-decoration: line-through;}
+table a:hover {border-bottom: 1px dashed #bbb;}
+/* =head =foot
+----------------------------------------------- */
+
+thead th, tfoot th, tfoot td {background:#333;color:#fff}
+tfoot td {text-align:right}
+tbody th, tbody td {border-bottom: dotted 1px #333;}
+tbody th {white-space: nowrap;}
+tbody th a {color:#333;}
+tbody tr:hover {background:#fafafa}
+/* formulário
+------- */
+form{margin:0 30% 0 30%; width: 40%;background-color:slategray; padding:10px 10px 10px 10px; }
+form div{border:solid black 1px; background-color:silver;margin-bottom: 2px;padding:0 2px 5px 2px;}
+form label{position: relative; font-size: small; margin-right: 100%;}
+form input[type=text],select, input[type=date], input[type=time],
+input[type=password],input[type=email]{width: 100%; border-radius: 20px;}
+form input[type=submit], input[type=button]{width: 100%; padding:10px 0 10px 0;}
+.botao{background-color:white; padding: 10px 30px 10px 30px; width: 130px; margin-left: 0;}
+/*
+Configuração da Div Menu
+*/
+.menu{position: absolute;width: 12%;height: 60%;left: 10px; font-size: medium; margin-top: 1%;}
+iframe[name="principal"]{position: absolute;height: 80%; width:85%; margin: 1% 0 -50% 13%; background-color: white; }
+iframe[name="exibe"]{position:absolute;height: 70%; width: 90%;}
+#menu{text-align: center; margin-bottom: 5px; background-color: #EEE;}
+button{background-color:white; padding: 10px 30px 10px 30px; width: 130px; margin-left: 5%;}
+/*
+Configuração do frame
+*/
+.TabbedPanelsContent iframe{width: 100%; height: 300px;}
+/*
+Informações sobre os cães
+*/
+#information{position: relative; margin: 0 2px 2px 50%; border-style:solid; padding: 2px 2px 2px 2px;height:210px;}
+#image{position: absolute; margin: 0 50% 0 0; border-style:solid; padding: 2px 2px 2px 2px; width:48%; height: 210px;}
+#image img{height:200px; position:absolute; left: 50%; margin-left: -24%;}
+
+/*
+Formulário para dados grandes.
+*/
+#form_grande{margin:0 2% 0 2%; width: 96%;background-color:slategray; padding:5px 5px 5px 5px; }
+#form_grande div{border:solid black 1px; background-color:silver;margin:0 0 10px 5%;padding:0 2px 5px 2px; width:20%}
+#form_grande label{position: relative; font-size: small; margin-right: 100%;}
+#form_grande input[type=text],#form_grande select,#form_grande input[type=date]{width: 100%; border-radius: 20px;}
+#form_grande input[type=submit],#form_grande input[type=button]{position:absolute; width: 300px; padding:10px 0 10px 0; margin:-50px 0 0 25%;}
+/*
+Estilo para página de erro de navegador
+*/
+.navegador{text-align: center;background-color:white;margin: 10% 35% 0% 35%; padding: 20px 3px 20px 3px; width: 30%;font:15px arial,serif;}
+.navegador #img{width:33%; float: left;}
+
+/*
+Página Inicial
+*/
+#init img{position:absolute; left: 50%; top:50%; height: 90%; margin-left: -20%; margin-top: -20%;}
+/*
+Créditos finais
+*/
+footer{margin-top: 42%; font-size: smaller;}

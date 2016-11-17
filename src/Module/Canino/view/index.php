@@ -8,6 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link href="../../../public/css/principal.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <?php
@@ -31,7 +32,7 @@ and open the template in the editor.
             <tbody>
                 <?php foreach($dados["caninos"] as $row): ?>
                 <tr>
-                    <td><?php echo $row->nome_canino ?></td>
+                    <td><a href=""><?php echo $row->nome_canino ?></a></td>
                     <td><?php echo date("d/m/Y",strtotime($row->data_nascimento)) ?></td>
                     <td><?php echo $row->pedigree ?></td>
                     <td><?php echo $row->microchip ?></td>
