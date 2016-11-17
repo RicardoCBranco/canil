@@ -19,11 +19,12 @@ class Canino extends Product{
     private $cor;
     
     public function __construct(array $data) {
-        $this->setIdCanino(isset($data['id_canino'])?$data['id_canino']:0)
+        $this->setIdCanino(isset($data['id_canino'])?$data['id_canino']:"0")
                 ->setCor($data['cor'])
                 ->setCpf($data['cpf'])
                 ->setDataNascimento($data['data_nascimento'])
                 ->setIdBox($data['id_box'])
+                ->setIdRaca($data['id_raca'])
                 ->setNomeCanino($data['nome_canino'])
                 ->setOrigem($data['origem'])
                 ->setPedigree($data['pedigree'])

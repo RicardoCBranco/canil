@@ -8,25 +8,19 @@ namespace CasteloBranco\Canil\Data;
  */
 class DataSet {
     private $params = array();
-    private $values = array();
+    protected $values = array();
     
     public function setParams(array $params) {
-        $this->$params = array();
-        $this->$params = $params;
+        $this->params = array();
+        $this->params = $params;
     }
-
-    public function setValues(array $values) {
-        $this->$values = array();
-        $this->$values = $values;
-    }
-
         
     private function init($sql){       
         try{
             $con = Conexao::getConection();
             $stmt = $con->prepare($sql);
-            foreach ($this->$values as $key => $values){
-                $stmt->bindValue($key,$values,$this->$params[$key]);
+            foreach ($this->values as $key => $values){
+                $stmt->bindValue($key,$values,$this->params[$key]);
             }
             $stmt->execute();
             return $stmt;
@@ -42,12 +36,12 @@ class DataSet {
         
     }
     
-    public static function table($sql){
+    public function table($sql){
         $table = $this->init($sql);
         return $table->fetchAll(\PDO::FETCH_OBJ);
     }
     
-    public static function execute($sql){
+    public function execute($sql){
         try{
             $con = Conexao::getConection();
             $stmt = $con->prepare($sql);

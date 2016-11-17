@@ -7,7 +7,6 @@ namespace CasteloBranco\Canil\Data\Table;
  */
 class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
     private $tblName;
-    private $vals = array();
     private $cols = array();
     private $order = array();
     private $where = array();
@@ -27,7 +26,7 @@ class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
         $cols = NULL;
         if(count($this->cols)>0){
             for ($i=0; $i<count($this->cols); $i++){
-                $cols .= $this->cols[$i]." = :".$this->vals[$i].",";
+                $cols .= $this->cols[$i]." = :".$this->cols[$i].",";
             }
         }
         return $cols;
@@ -73,7 +72,7 @@ class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
     }
 
     public function setVals(array $vals) {
-        $this->vals = array_merge($this->vals,$vals);
+        $this->values = array_merge($this->values,$vals);
     }
     
     public function setOrder($column, $order = NULL){

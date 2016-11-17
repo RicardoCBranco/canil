@@ -1,11 +1,12 @@
 <?php
 namespace CasteloBranco\Canil\Data\Table;
+use CasteloBranco\Canil\Data\DataSet;
 /**
  * Description of SelectData
  *
  * @author Ricardo
  */
-class SelectData extends \CasteloBranco\Canil\Data\DataSet{
+class SelectData extends DataSet{
     private $table;
     private $concat = array();
     private $cols = array();

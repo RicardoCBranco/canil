@@ -35,7 +35,7 @@ class ConexaoTest extends PHPUnit{
             "atividade_canino","box","canino","caracteristica_medicamento","categoria",
             "clima","comida","desempenho","estado","exercicio","exercicio_atividade",
             "exercicio_treinamento","fezes","forma_farmaceutica","fotos","funcionalidade",
-            "localizacao","material","menu","origem","pais","parentesco","perfil",
+            "localizacao","material","menu","origem","padrao_fci","pais","parentesco","perfil",
             "perfil_funcionalidade","pessoa","raca","sexo","telefone_contato",
             "terreno","tipo_material","trabalho","tipo_medicamento","trabalho_canino",
             "treinamento","urina","veterinaria","veterinaria_medicamento","via_administracao"));

@@ -8,7 +8,6 @@ namespace CasteloBranco\Canil\Data\Table;
 class InsertData extends \CasteloBranco\Canil\Data\DataSet{
     private $tblName;
     private $cols = array();
-    private $vals = array();
     
     public function __construct($tblName) {
         $this->tblName = $tblName;
@@ -24,7 +23,7 @@ class InsertData extends \CasteloBranco\Canil\Data\DataSet{
             $cmd .= substr($cols,0,-1);
         }
         $cmd .= ") VALUES";
-        $cmd .= str_replace("))",")",str_replace("((", "(",$this->getVals($this->vals)));
+        $cmd .= str_replace("))",")",str_replace("((", "(",$this->getVals($this->values)));
         $cmd .= ";" ;
         return $cmd;
     }
@@ -34,18 +33,18 @@ class InsertData extends \CasteloBranco\Canil\Data\DataSet{
     }
     
     public function setVals(array $vals){
-        $this->vals = $vals;
+        $this->values = $vals;
     }
     
     private function getVals($arrayVals){
         $values = NULL;
         $cmd = "(";
         if(count($arrayVals)>0){
-            foreach ($arrayVals as $row){
+            foreach ($arrayVals as $key => $row){
                 if(is_array($row)){
                    $values .= $this->getVals($row);
                 }else{
-                    $values .= ":$row";
+                    $values .= ":$key";
                 }
                 $values .= ",";
             }
@@ -55,7 +54,7 @@ class InsertData extends \CasteloBranco\Canil\Data\DataSet{
         return $cmd;
     }
     
-    public static function execute($sql = NULL) {
+    public function execute($sql = NULL) {
         $sql .= $this->getComando();
         return parent::execute($sql);
     }

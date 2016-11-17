@@ -21,6 +21,11 @@ class CaninoTabela implements ITabela{
     }
 
     public static function insert($classe){
+        $ds = new \CasteloBranco\Canil\Data\Table\InsertData("canino");
+        $ds->setParams($classe->getParams());
+        $ds->setCols(array_keys($classe->getValues()));
+        $ds->setVals($classe->getValues());
+        return (int)$ds->execute();
     }
 
     public static function update($classe) {
