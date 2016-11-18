@@ -23,7 +23,7 @@ table a:hover {border-bottom: 1px dashed #bbb;}
 /* =head =foot
 ----------------------------------------------- */
 
-thead th, tfoot th, tfoot td {background:#333;color:#fff}
+thead th, tfoot th, tfoot td {background:#333;color:#fff; cursor: default;}
 tfoot td {text-align:right}
 tbody th, tbody td {border-bottom: dotted 1px #333;}
 tbody th {white-space: nowrap;}

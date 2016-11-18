@@ -26,7 +26,7 @@
 		<field Field="id_atividade" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
 		<field Field="tipo_atividade" Type="text" Null="YES" Key="" Extra="" Comment="" />
 		<key Table="atividade" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_atividade" Collation="A" Cardinality="6" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="atividade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="6" Avg_row_length="2730" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="7" Create_time="2016-10-11 10:42:52" Update_time="2016-11-17 18:43:27" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="atividade" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="6" Avg_row_length="2730" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="7" Create_time="2016-10-11 10:42:52" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="atividade">
 	<row>
@@ -71,7 +71,7 @@
 		<field Field="localizacao" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
 		<key Table="box" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_box" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="box" Non_unique="1" Key_name="localizacao" Seq_in_index="1" Column_name="localizacao" Collation="A" Cardinality="1" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="box" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:42:54" Update_time="2016-11-17 18:43:27" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="box" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:42:54" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="box">
 	<row>
@@ -88,8 +88,8 @@
 		<field Field="data_nascimento" Type="date" Null="YES" Key="" Extra="" Comment="" />
 		<field Field="pedigree" Type="text" Null="YES" Key="" Extra="" Comment="" />
 		<field Field="microchip" Type="text" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="origem" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
-		<field Field="sexo" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
+		<field Field="origem" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="sexo" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
 		<field Field="id_raca" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
 		<field Field="id_box" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
 		<field Field="cpf" Type="varchar(11)" Null="YES" Key="MUL" Extra="" Comment="" />
@@ -97,10 +97,8 @@
 		<key Table="canino" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_canino" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="canino" Non_unique="1" Key_name="id_raca" Seq_in_index="1" Column_name="id_raca" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="canino" Non_unique="1" Key_name="id_box" Seq_in_index="1" Column_name="id_box" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<key Table="canino" Non_unique="1" Key_name="id_sexo" Seq_in_index="1" Column_name="sexo" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<key Table="canino" Non_unique="1" Key_name="canino_ibfk_5" Seq_in_index="1" Column_name="origem" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="canino" Non_unique="1" Key_name="canino_ibfk_1" Seq_in_index="1" Column_name="cpf" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="canino" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="81920" Data_free="0" Auto_increment="3" Create_time="2016-11-17 18:23:26" Update_time="2016-11-17 18:23:16" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="canino" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="49152" Data_free="0" Auto_increment="1" Create_time="2016-11-18 11:38:52" Update_time="2016-11-18 11:38:44" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="canino">
 	</table_data>
@@ -265,7 +263,7 @@
 		<field Field="id_origem" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
 		<field Field="origem_canino" Type="varchar(50)" Null="YES" Key="" Extra="" Comment="" />
 		<key Table="origem" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_origem" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="origem" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:43:02" Update_time="2016-11-17 18:43:27" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="origem" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:43:02" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="origem">
 	<row>
@@ -326,7 +324,7 @@
 		<field Field="id_perfil" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
 		<key Table="pessoa" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="cpf" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="pessoa" Non_unique="1" Key_name="id_perfil" Seq_in_index="1" Column_name="id_perfil" Collation="A" Cardinality="1" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="pessoa" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2016-10-11 10:43:04" Update_time="2016-11-17 18:46:06" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="pessoa" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2016-10-11 10:43:04" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="pessoa">
 	<row>
@@ -343,7 +341,7 @@
 		<field Field="padrao_fci" Type="int(11)" Null="YES" Key="MUL" Extra="" Comment="" />
 		<key Table="raca" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_raca" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="raca" Non_unique="1" Key_name="FK_raca_padrao" Seq_in_index="1" Column_name="padrao_fci" Collation="A" Cardinality="1" Null="YES" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="raca" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="2" Create_time="2016-11-17 18:02:56" Update_time="2016-11-17 18:43:27" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="raca" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="2" Create_time="2016-11-17 18:02:56" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="raca">
 	<row>
@@ -356,7 +354,7 @@
 		<field Field="id_sexo" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
 		<field Field="sexo" Type="varchar(10)" Null="YES" Key="" Default="0" Extra="" Comment="" />
 		<key Table="sexo" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_sexo" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="sexo" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:43:10" Update_time="2016-11-17 18:43:27" Collation="utf8_bin" Create_options="" Comment="" />
+		<options Name="sexo" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="2" Create_time="2016-10-11 10:43:10" Update_time="2016-11-18 11:38:15" Collation="utf8_bin" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="sexo">
 	<row>

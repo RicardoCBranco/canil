@@ -11,6 +11,7 @@ class Canino extends Product{
     private $nomeCanino;
     private $dataNascimento;
     private $pedigree;
+    private $microchip;
     private $origem;
     private $sexo;
     private $idRaca;
@@ -19,15 +20,16 @@ class Canino extends Product{
     private $cor;
     
     public function __construct(array $data) {
-        $this->setIdCanino(isset($data['id_canino'])?$data['id_canino']:"0")
+        $this->setIdCanino(isset($data['id_canino'])?$data['id_canino']:'0')
                 ->setCor($data['cor'])
                 ->setCpf($data['cpf'])
                 ->setDataNascimento($data['data_nascimento'])
-                ->setIdBox($data['id_box'])
+                ->setIdBox(isset($data['id_box'])?$data['id_box']:NULL)
                 ->setIdRaca($data['id_raca'])
+                ->setMicrochip((strlen($data['microchip'])!=0)?$data['microchip']:NULL)
                 ->setNomeCanino($data['nome_canino'])
                 ->setOrigem($data['origem'])
-                ->setPedigree($data['pedigree'])
+                ->setPedigree((strlen($data['pedigree'])!=0)?$data['pedigree']:NULL)
                 ->setSexo($data['sexo']);
     }
 
@@ -43,8 +45,12 @@ class Canino extends Product{
     public function getDataNascimento() {
         return $this->dataNascimento;
     }
+    
+    public function getMicrochip() {
+        return $this->microchip;
+    }
 
-    public function getPedigree() {
+        public function getPedigree() {
         return $this->pedigree;
     }
 
@@ -86,6 +92,11 @@ class Canino extends Product{
         $this->dataNascimento = $dataNascimento;
         return $this;
     }
+    
+    public function setMicrochip($microchip) {
+        $this->microchip = $microchip;
+        return $this;
+    }
 
     public function setPedigree($pedigree) {
         $this->pedigree = $pedigree;
@@ -125,15 +136,16 @@ class Canino extends Product{
     public function getParams() {
         return array(
           "id_canino" => \PDO::PARAM_INT,
-          "cor" => \PDO::PARAM_INT,
+          "cor" => \PDO::PARAM_STR,
           "cpf" => \PDO::PARAM_STR,
           "data_nascimento" => \PDO::PARAM_STR,
           "id_box" => \PDO::PARAM_INT,
           "id_raca" => \PDO::PARAM_INT,
+          "microchip" => \PDO::PARAM_STR,
           "nome_canino" => \PDO::PARAM_STR,
-          "origem" => \PDO::PARAM_INT,
+          "origem" => \PDO::PARAM_STR,
           "pedigree" => \PDO::PARAM_STR,
-          "sexo" => \PDO::PARAM_INT,
+          "sexo" => \PDO::PARAM_STR,
         );
     }
 
@@ -145,6 +157,7 @@ class Canino extends Product{
           "data_nascimento" => $this->getDataNascimento(),
           "id_box" => $this->getIdBox(),
           "id_raca" => $this->getIdRaca(),
+          "microchip" => $this->getMicrochip(),
           "nome_canino" => $this->getNomeCanino(),
           "origem" => $this->getOrigem(),
           "pedigree" => $this->getPedigree(),

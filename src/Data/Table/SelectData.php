@@ -22,13 +22,13 @@ class SelectData extends DataSet{
     }
 
     public function getComando() {
-        $cmd = "SELECT ".substr($this->getCols(),0,-1)." FROM $this->table";
+        $cmd = "SELECT ".substr($this->getCols(),0,-1)." FROM $this->table".$this->space($this->join);
         $cmd .= $this->getJoin().$this->space($this->where);
         $cmd .= $this->getWhere().$this->space($this->group);
         $cmd .= substr($this->getGroup(),0,-1).$this->space($this->having);
         $cmd .= $this->getHaving().$this->space($this->order);
         $cmd .= substr($this->getOrder(),0,-1).$this->space($this->limit);
-        $cmd .= substr($this->getLimit(),0,-1).";";        
+        $cmd .= substr($this->getLimit(),0,-1).";";
         return $cmd;
     }
     
@@ -65,9 +65,13 @@ class SelectData extends DataSet{
     private function getJoin(){
         $join = NULL;
         if(count($this->join)>0){
-            foreach ($this->join as $key => $str){
-                $join .= " ".$key." JOIN ".$str['t1']." ON(".$str['t1'].".".$str['c1']
+            foreach ($this->join as $str){
+                $join .= $str["join"]." JOIN ".$str['t1'];
+                $join .= is_null($str["t2"])?NULL:" ON(".$str['t1'].".".$str['c1']
                         ."=".$str['t2'].".".$str['c2'].")";
+                if(isset($this->join[key($this->join)+1])){
+                 $join .= " ";
+                }                
             }
         }
         return $join;
@@ -117,8 +121,8 @@ class SelectData extends DataSet{
         $termos = NULL;
         if(count($this->where)>0){
             $where .= "WHERE ";
-            foreach ($this->where as $str){
-                $termos .= "$str AND";
+            foreach ($this->where as $str => $value){
+                $termos .= "$str LIKE :$str AND";
             }
             $where .= substr($termos,0,-4);
         }
@@ -148,7 +152,7 @@ class SelectData extends DataSet{
     }
 
     public function setVals(array $vals) {
-        
+        $this->values = array_merge($this->values,$vals);
     }
     
     public function setConcat(array $termos, $apelido = NULL){
@@ -158,8 +162,9 @@ class SelectData extends DataSet{
         $this->concat[$apelido] = $termos;
     }
     
-    public function setJoin($join, $table1, $colum1, $table2, $colum2){
-        $this->join[$join] = ["t1"=>$table1,"t2"=>$table2,"c1"=>$colum1,"c2"=>$colum2];
+    public function setJoin($join, $table1, $table2 = NULL, $colum1 = NULL,$colum2 = NULL){
+        array_push($this->join,
+        ["t1"=>$table1,"t2"=>$table2,"c1"=>$colum1,"c2"=>$colum2, "join"=>$join]);
     }
     
     public function setOrder($column, $order = NULL){

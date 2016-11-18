@@ -15,11 +15,14 @@ class DataSet {
         $this->params = $params;
     }
         
-    private function init($sql){       
+    private function init($sql){
         try{
             $con = Conexao::getConection();
             $stmt = $con->prepare($sql);
             foreach ($this->values as $key => $values){
+                if(!isset($this->params[$key])){
+                    $this->params[$key] = \PDO::PARAM_STR;
+                }
                 $stmt->bindValue($key,$values,$this->params[$key]);
             }
             $stmt->execute();

@@ -53,9 +53,13 @@ class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
         if(count($this->where)>0){
             $where .= "WHERE ";
             foreach ($this->where as $str){
-                $termos .= "$str AND";
+                if(is_null($this->values[$str])){
+                    $termos .= "$str IS NULL AND ";
+                }else{
+                   $termos .= "$str LIKE :".strtoupper($str)." AND "; 
+                }
             }
-            $where .= substr($termos,0,-4);
+            $where .= substr($termos,0,-5);
         }
         return $where;
     }
@@ -87,7 +91,7 @@ class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
         $this->where = array_merge($this->where,$where);
     }
     
-    public static function execute($sql = NULL) {
+    public function execute($sql = NULL) {
         $sql .= $this->getComando();
         return parent::execute($sql);
     }

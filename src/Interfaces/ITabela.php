@@ -13,7 +13,8 @@ interface ITabela {
     * 
     * @param type $classe
     */
-   public static function update($classe);
+   public static function update(\CasteloBranco\Canil\Factory\Product $classeAnt,
+                \CasteloBranco\Canil\Factory\Product $classePos);
    /**
     * 
     * @param array $id

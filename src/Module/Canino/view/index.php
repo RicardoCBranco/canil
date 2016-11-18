@@ -9,6 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <link href="../../../public/css/principal.css" rel="stylesheet" type="text/css">
+        <script src="../../../public/jscript/sorttable.js"></script>
     </head>
     <body>
         <?php
@@ -16,7 +17,7 @@ and open the template in the editor.
             $ctrl = new CasteloBranco\Canil\Module\Canino\Controller\CaninoController();
             $dados = $ctrl->indexAction();
         ?>
-        <table>
+        <table class="sortable">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -27,6 +28,7 @@ and open the template in the editor.
                     <th>Sexo</th>
                     <th>Raça</th>
                     <th>Cor</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,14 +40,16 @@ and open the template in the editor.
                     <td><?php echo $row->microchip ?></td>
                     <td><?php echo $row->origem ?></td>
                     <td><?php echo $row->sexo ?></td>
-                    <td><?php echo $row->id_raca ?></td>
+                    <td><?php echo $row->nome_raca ?></td>
                     <td><?php echo $row->cor; ?></td>
+                    <td><a href="edit.php?id_canino=<?php echo $row->id_canino; ?>">
+                            Atualizar</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8">Registros Localizados: <?php echo count($dados['caninos']);?></td>
+                    <td colspan="9">Registros Localizados: <?php echo count($dados['caninos']);?></td>
                 </tr>
             </tfoot>
         </table>

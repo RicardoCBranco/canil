@@ -20,11 +20,11 @@ class CaninoTabelaTest extends PHPUnit{
     }
     
     public function testInsert(){
-        $dados = ["nome_canino"=>"Nuno","data_nascimento"=>"2002-1-1","pedigree"=>NULL,
-            "microchip" => NULL,"origem" =>"1","sexo" => "1","id_raca"=>"1",
-            "id_box"=>"1","cpf"=>"11111111111","cor"=>"Capa Preta"];
+        $dados = ["nome_canino"=>"Nuno","data_nascimento"=>"2002-1-1","pedigree"=>"",
+            "microchip" => "","origem" =>"Cria Propria","sexo" => "Macho","id_raca"=>"1"
+            ,"cpf"=>"11111111111","cor"=>"Capa Preta"];
         $classe = new \CasteloBranco\Canil\Module\Canino\Model\Canino($dados);
         $tab = new CaninoTabela();
-        $this->assertInternalType("int", $tab->insert($classe));
+        $this->assertEquals(1, $tab->insert($classe));
     }
 }
