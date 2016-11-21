@@ -17,7 +17,7 @@ class CaninoController implements \CasteloBranco\Canil\Interfaces\IController {
                     factoryMethod(\CasteloBranco\Canil\Module\Canino\Model\Canino::class,
                         filter_input_array( INPUT_POST));
             \CasteloBranco\Canil\Module\Canino\Model\CaninoTabela::insert($classe);
-            header("location:index.php");
+            //header("location:index.php");
         }
         return array(
           "racas"  => $raca,

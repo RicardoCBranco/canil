@@ -9,6 +9,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <?php
+        ini_set("display_errors", 1);
+            error_reporting(E_ALL);
             include_once '../../autoload.php';
             $ctrl = new \CasteloBranco\Canil\Module\Canino\Controller\CaninoController();
             $dados = $ctrl->addAction();
