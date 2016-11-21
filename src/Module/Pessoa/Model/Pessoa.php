@@ -43,7 +43,8 @@ class Pessoa extends \CasteloBranco\Canil\Factory\Product{
     }
 
     public function setCpf($cpf) {
-        $this->cpf = $cpf;
+        $this->cpf = filter_var(str_replace([".","-"], "", $cpf),
+                FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         return $this;
     }
 
