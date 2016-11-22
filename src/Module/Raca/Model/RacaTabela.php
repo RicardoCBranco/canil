@@ -7,6 +7,13 @@ namespace CasteloBranco\Canil\Module\Raca\Model;
  * @author Ricardo
  */
 class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {    
+    public static function getInstancia() {
+        $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
+        $ds->setTable("raca");
+        return $ds;
+    }
+
+    
     public static function delete(array $id) {
         
     }
@@ -16,16 +23,16 @@ class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {
     }
 
     public static function findAll() {
-        $ds = new \CasteloBranco\Canil\Data\Table\SelectData("raca");
-        $dados = $ds->table();
-        return $dados;
+        $ds = self::getInstancia();
+        $table = $ds->mountTable();
+        return $ds->getTable($table);
     }
 
     public static function insert($classe) {
         
     }
 
-    public static function update(\CasteloBranco\Canil\Factory\Product $classeAnt, \CasteloBranco\Canil\Factory\Product $classePos) {
+    public static function update($classeAnt, $classePos) {
         
     }
 

@@ -20,23 +20,24 @@ and open the template in the editor.
         <form method="post" action="">
             <div>
                 <label for="nome_pessoa">Nome Completo</label>
-                <input type="text" name="nome_pessoa">
+                <input type="text" name="nome_pessoa" required="true">
             </div>
             <div>
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" onkeypress="formatar_mascara(this,'###.###.###-##')">
+                <input type="text" name="cpf" 
+                       onkeypress="formatar_mascara(this,'###.###.###-##')" required="true">
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email">
+                <input type="email" name="email" required="true">
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="password" name="senha">
+                <input type="password" name="senha" required="true">
             </div>
             <div>
                 <label for="id_perfil">Função</label>
-                <select name="id_perfil">
+                <select name="id_perfil" required="true">
                     <option></option>
                     <?php foreach($dados['perfil'] as $opt): ?>
                     <option value="<?php echo $opt->id_perfil; ?>">

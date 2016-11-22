@@ -9,6 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <link href="../../../public/css/principal.css" type="text/css" rel="stylesheet">
+        <script src="../../../public/jscript/sorttable.js"></script>
         <?php
             include_once '../../autoload.php';
             $ctrl = new \CasteloBranco\Canil\Module\Pessoa\Controller\PessoaController();
@@ -16,7 +17,7 @@ and open the template in the editor.
         ?>
     </head>
     <body>
-        <table>
+        <table class="sortable">
             <thead>
                 <tr>
                     <th>Nome Completo</th><th>CPF</th><th>Email</th><th>Ação</th>
