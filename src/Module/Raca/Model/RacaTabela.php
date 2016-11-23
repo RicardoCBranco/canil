@@ -19,7 +19,8 @@ class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {
     }
 
     public static function find(array $id) {
-        
+        $ds = self::getInstancia();
+        return $ds->getRow($id);
     }
 
     public static function findAll() {
@@ -29,11 +30,13 @@ class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {
     }
 
     public static function insert($classe) {
-        
+        $ds = self::getInstancia();
+        $ds->doInsert($classe);
     }
 
     public static function update($classeAnt, $classePos) {
-        
+        $ds = self::getInstancia();
+        $ds->doUpdate($classeAnt, $classePos);
     }
 
 
