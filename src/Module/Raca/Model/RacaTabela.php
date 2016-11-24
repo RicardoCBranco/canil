@@ -15,7 +15,8 @@ class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {
 
     
     public static function delete(array $id) {
-        
+        $ds = self::getInstancia();
+        $ds->doDelete($id);
     }
 
     public static function find(array $id) {

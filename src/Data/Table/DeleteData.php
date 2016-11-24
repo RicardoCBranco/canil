@@ -34,7 +34,7 @@ class DeleteData extends \CasteloBranco\Canil\Data\DataSet{
     }
 
     public function setVals(array $vals) {
-        
+         $this->values = array_merge($this->values,$vals);
     }
     
     public function setJoin($join, $table1, $table2 = NULL, $colum1 = NULL,$colum2 = NULL){
@@ -85,10 +85,10 @@ class DeleteData extends \CasteloBranco\Canil\Data\DataSet{
         $termos = NULL;
         if(count($this->where)>0){
             $where .= "WHERE ";
-            foreach ($this->where as $str){
-                $termos .= "$str AND ";
+            foreach ($this->where as $str => $value){
+                $termos .= "$str LIKE :$str AND";
             }
-            $where .= substr($termos,0,-5);
+            $where .= substr($termos,0,-4);
         }
         return $where;
     }
@@ -126,7 +126,7 @@ class DeleteData extends \CasteloBranco\Canil\Data\DataSet{
         return NULL;
     }
     
-    public static function execute($sql = NULL) {
+    public function execute($sql = NULL) {
         $sql .= $this->getComando();
         return parent::execute($sql);
     }

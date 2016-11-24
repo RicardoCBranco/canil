@@ -617,8 +617,11 @@ DROP TABLE IF EXISTS `padrao_fci`;
 CREATE TABLE `padrao_fci` (
   `id_padrao` int(11) NOT NULL,
   `content` longblob,
+  `id_raca` int(11) DEFAULT NULL,
   `mime` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_padrao`)
+  PRIMARY KEY (`id_padrao`),
+  KEY `FK_padrao_fci_raca` (`id_raca`),
+  CONSTRAINT `FK_padrao_fci_raca` FOREIGN KEY (`id_raca`) REFERENCES `raca` (`id_raca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -693,7 +696,7 @@ CREATE TABLE `perfil` (
   `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_perfil` text COLLATE utf8_bin,
   PRIMARY KEY (`id_perfil`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -702,6 +705,7 @@ CREATE TABLE `perfil` (
 
 LOCK TABLES `perfil` WRITE;
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
+INSERT INTO `perfil` VALUES (1,'Administrador'),(2,'Adestrador'),(3,'Tratador'),(4,'Veterinária'),(5,'Instrução');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -756,7 +760,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES ('11111111111','email@email.com','Pessoa Teste',NULL,NULL);
+INSERT INTO `pessoa` VALUES ('02368666486','ricardo.castelobranco2@gmail.com','ANTONIO RICARDO ANDRADE CASTELO BRANCO','e10adc3949ba59abbe56e057f20f883e',1),('11111111111','pessoa@email.com','Pessoa Geral','e10adc3949ba59abbe56e057f20f883e',2);
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -770,10 +774,7 @@ DROP TABLE IF EXISTS `raca`;
 CREATE TABLE `raca` (
   `id_raca` int(11) NOT NULL AUTO_INCREMENT,
   `nome_raca` text COLLATE utf8_bin,
-  `padrao_fci` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_raca`),
-  KEY `FK_raca_padrao` (`padrao_fci`),
-  CONSTRAINT `FK_raca_padrao` FOREIGN KEY (`padrao_fci`) REFERENCES `padrao_fci` (`id_padrao`)
+  PRIMARY KEY (`id_raca`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -783,7 +784,7 @@ CREATE TABLE `raca` (
 
 LOCK TABLES `raca` WRITE;
 /*!40000 ALTER TABLE `raca` DISABLE KEYS */;
-INSERT INTO `raca` VALUES (1,'Pastor Alemão',NULL);
+INSERT INTO `raca` VALUES (1,'Pastor Alemão');
 /*!40000 ALTER TABLE `raca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1122,4 +1123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-21  8:00:48
+-- Dump completed on 2016-11-24  7:55:43

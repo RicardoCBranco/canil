@@ -51,4 +51,11 @@ class ClientDataSet {
         $ds->setVals(array_filter($vals));
         $ds->execute();
     }
+    
+    public function doDelete(array $id){
+        $ds = new Table\DeleteData($this->table);
+        $ds->setWhere($id);
+        $ds->setVals($id);
+        $ds->execute();
+    }
 }

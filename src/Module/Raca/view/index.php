@@ -14,6 +14,7 @@ and open the template in the editor.
          $ctrl = new \CasteloBranco\Canil\Module\Raca\Controller\RacaController();
          $dados = $ctrl->indexAction();
         ?>
+        <script type="text/javascript" src="jscript/actionRaca.js"></script>
     </head>
     <body>
         <table>
@@ -27,16 +28,15 @@ and open the template in the editor.
                 <tr>
                     <td><?php echo $row->nome_raca; ?></td>
                     <td>
-                        <a href="edit.php?id_raca=<?php echo $row->id_raca ?>">Editar</a>
-                        |
-                        <a href="delete.php?id_raca=<?php echo $row->id_raca ?>">Apagar</a>
+                        <button onclick="edita(<?php echo $row->id_raca ?>)">Editar</button>   
+                        <button onclick="deleta(<?php echo $row->id_raca ?>)" class="btnRaca">Deleta</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">Registros Encontrados: <?php echo count($dados["raca"]);?></td>
                 </tr>
             </tfoot>
         </table>
