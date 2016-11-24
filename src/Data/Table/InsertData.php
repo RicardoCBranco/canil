@@ -14,6 +14,7 @@ class InsertData extends \CasteloBranco\Canil\Data\DataSet{
     }
     
     public function getComando(){
+        var_dump($this->values);
         $cmd = "INSERT INTO $this->tblName (";
         $cols = null;
         if(count($this->cols)>0){

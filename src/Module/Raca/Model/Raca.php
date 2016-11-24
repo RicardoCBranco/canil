@@ -15,10 +15,8 @@ class Raca extends \CasteloBranco\Canil\Factory\Product{
     
     public function __construct(array $dados) {
         $this->setIdRaca(isset($dados["id_raca"])?$dados["id_raca"]:0);
-        $this->setContent($dados["content"]);
-        $this->setMime($dados["mime"]);
         $this->setNomeRaca($dados["nome_raca"]);
-        $this->setPadraoFCI($dados["padrao_fci"]);
+        $this->setPadraoFCI((strlen($dados["padrao_fci"])>0)?$dados["padrao_fci"]:NULL);
     }
 
     public function getIdRaca() {
@@ -31,14 +29,6 @@ class Raca extends \CasteloBranco\Canil\Factory\Product{
 
     public function getPadraoFCI() {
         return $this->padraoFCI;
-    }
-
-    public function getContent() {
-        return $this->content;
-    }
-
-    public function getMime() {
-        return $this->mime;
     }
 
     public function setIdRaca($idRaca) {
@@ -56,24 +46,11 @@ class Raca extends \CasteloBranco\Canil\Factory\Product{
         return $this;
     }
 
-    public function setContent($content) {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function setMime($mime) {
-        $this->mime = filter_var($mime,FILTER_SANITIZE_STRING);
-        return $this;
-    }
-
     public function getParams() {
         return array(
             "id_raca" => \PDO::PARAM_INT,
             "nome_raca" => \PDO::PARAM_STR,
-            "padao_fci" => \PDO::PARAM_INT,
-            "id_padrao" => \PDO::PARAM_INT,
-            "content" => \PDO::PARAM_LOB,
-            "mime" => \PDO::PARAM_STR
+            "padrao_fci" => \PDO::PARAM_INT,
         );
     }
 
@@ -81,10 +58,7 @@ class Raca extends \CasteloBranco\Canil\Factory\Product{
         return array(
             "id_raca" => $this->getIdRaca(),
             "nome_raca" => $this->getNomeRaca(),
-            "padao_fci" => $this->getPadraoFCI(),
-            "id_padrao" => $this->getPadraoFCI(),
-            "content" => $this->getContent(),
-            "mime" => $this->getMime()
+            "padrao_fci" => $this->getPadraoFCI(),
         );
     }
 
