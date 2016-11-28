@@ -10,7 +10,7 @@ interface IConnect {
     const PSWD = "root";
     const HOST = "localhost";
     const DBNAME = "canil";
-    const DSN = "mysql:host=".self::HOST.";dbname=".self::DBNAME;
+    const DRIVER = "mysql";
     const CHARSET = "SET NAMES UTF8";
     /*
      * Função getConection componente do Connection responsável pela conexão do

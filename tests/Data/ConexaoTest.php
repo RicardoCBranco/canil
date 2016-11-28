@@ -19,7 +19,7 @@ class ConexaoTest extends PHPUnit{
     protected function getConnection() {    
         if(is_null($this->con)){
             if(is_null(self::$pdo)){
-                self::$pdo = new \PDO(IConnect::DSN,  IConnect::USER, IConnect::PSWD);
+                self::$pdo = new \PDO(sprintf("%s:host=%s;dbname=%s",[IConnect::DRIVER,  IConnect::HOST , IConnect::DBNAME,]),  IConnect::USER, IConnect::PSWD);
             }
             $this->con = $this->createDefaultDBConnection(self::$pdo,  IConnect::DBNAME);
         }

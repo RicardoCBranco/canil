@@ -13,9 +13,9 @@ class Conexao implements IConnect{
     public static function getConection() {
         if(!isset(self::$instance)){
             $options = array(\PDO::MYSQL_ATTR_INIT_COMMAND => IConnect::CHARSET);
-            $instance = new \PDO(IConnect::DSN.":host=".IConnect::HOST.
-                    ";dbname=".IConnect::DBNAME,  IConnect::USER, IConnect::PSWD,
-                    $options);
+            $instance = new \PDO(sprintf("%s:host=%s;dbname=%s",
+                    IConnect::DRIVER,  IConnect::HOST , IConnect::DBNAME),
+                    IConnect::USER,IConnect::PSWD,$options);
             self::$instance = $instance;
         }
         return self::$instance;

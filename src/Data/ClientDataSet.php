@@ -9,12 +9,12 @@ namespace CasteloBranco\Canil\Data;
 class ClientDataSet {
     private $table;
     public function mountTable(){
-        $ds = new Table\SelectData($this->table);
-        return $ds;
+        $table = new Table\SelectData($this->table);
+        return $table;
     }
     
-    public function getTable(Table\SelectData $ds){
-        return $ds->table();
+    public function getTable(Table\SelectData $table){
+        return $table->table();
     }
     
     public function setTable($table) {
