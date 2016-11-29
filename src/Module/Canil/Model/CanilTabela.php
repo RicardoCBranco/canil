@@ -1,5 +1,5 @@
 <?php
-namespace CasteloBranco\Canil\Module\Localizacao\Model;
+namespace CasteloBranco\Canil\Module\Canil\Model;
 use CasteloBranco\Canil\Interfaces\ITabela;
 
 /**
@@ -7,10 +7,10 @@ use CasteloBranco\Canil\Interfaces\ITabela;
  *
  * @author ricardo
  */
-class LocalizacaoTabela implements ITabela{
+class CanilTabela implements ITabela{
     public static function getInstancia() {
         $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
-        $ds->setTable("localizacao");
+        $ds->setTable("canil");
         return $ds;
     }
     
@@ -22,7 +22,7 @@ class LocalizacaoTabela implements ITabela{
     public static function find(array $id) {
         $ds = self::getInstancia();
         return \CasteloBranco\Canil\Factory\Creator::
-                factoryMethod(Localizacao::class, $ds->getRow($id));
+                factoryMethod(Canil::class, $ds->getRow($id));
     }
 
     public static function findAll() {

@@ -118,10 +118,10 @@ CREATE TABLE `box` (
   `cod_box` text COLLATE utf8_bin,
   `solario` tinyint(1) DEFAULT NULL,
   `agua_encanada` tinyint(1) DEFAULT NULL,
-  `localizacao` int(11) DEFAULT NULL,
+  `canil` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_box`),
-  KEY `localizacao` (`localizacao`),
-  CONSTRAINT `box_ibfk_1` FOREIGN KEY (`localizacao`) REFERENCES `localizacao` (`id_localizacao`)
+  KEY `localizacao` (`canil`),
+  CONSTRAINT `box_ibfk_1` FOREIGN KEY (`canil`) REFERENCES `canil` (`id_canil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -133,6 +133,35 @@ LOCK TABLES `box` WRITE;
 /*!40000 ALTER TABLE `box` DISABLE KEYS */;
 INSERT INTO `box` VALUES (1,'A1',1,1,NULL);
 /*!40000 ALTER TABLE `box` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `canil`
+--
+
+DROP TABLE IF EXISTS `canil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `canil` (
+  `id_canil` int(11) NOT NULL AUTO_INCREMENT,
+  `endereco` text COLLATE utf8_bin,
+  `bairro` text COLLATE utf8_bin,
+  `cidade` text COLLATE utf8_bin,
+  `uf` int(11) DEFAULT NULL,
+  `nome_canil` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id_canil`),
+  KEY `localizacao_ibfk_1` (`uf`),
+  CONSTRAINT `canil_ibfk_1` FOREIGN KEY (`uf`) REFERENCES `estado` (`id_estado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `canil`
+--
+
+LOCK TABLES `canil` WRITE;
+/*!40000 ALTER TABLE `canil` DISABLE KEYS */;
+/*!40000 ALTER TABLE `canil` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -499,34 +528,6 @@ LOCK TABLES `funcionalidade` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `localizacao`
---
-
-DROP TABLE IF EXISTS `localizacao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `localizacao` (
-  `id_localizacao` int(11) NOT NULL AUTO_INCREMENT,
-  `endereco` text COLLATE utf8_bin,
-  `bairro` text COLLATE utf8_bin,
-  `cidade` text COLLATE utf8_bin,
-  `uf` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_localizacao`),
-  KEY `localizacao_ibfk_1` (`uf`),
-  CONSTRAINT `localizacao_ibfk_1` FOREIGN KEY (`uf`) REFERENCES `estado` (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `localizacao`
---
-
-LOCK TABLES `localizacao` WRITE;
-/*!40000 ALTER TABLE `localizacao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `localizacao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `material`
 --
 
@@ -775,7 +776,7 @@ CREATE TABLE `raca` (
   `id_raca` int(11) NOT NULL AUTO_INCREMENT,
   `nome_raca` text COLLATE utf8_bin,
   PRIMARY KEY (`id_raca`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -784,7 +785,7 @@ CREATE TABLE `raca` (
 
 LOCK TABLES `raca` WRITE;
 /*!40000 ALTER TABLE `raca` DISABLE KEYS */;
-INSERT INTO `raca` VALUES (1,'Pastor Alemão');
+INSERT INTO `raca` VALUES (1,'Pastor Alemão'),(13,'Rottweiler'),(14,'Labrador');
 /*!40000 ALTER TABLE `raca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1123,4 +1124,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-24  7:55:43
+-- Dump completed on 2016-11-28 14:34:32

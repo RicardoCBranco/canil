@@ -1,28 +1,34 @@
 <?php
-namespace CasteloBranco\Canil\Module\Localizacao\Model;
+namespace CasteloBranco\Canil\Module\Canil\Model;
 use CasteloBranco\Canil\Factory\Product;
 /**
- * Description of Localizacao
+ * Description of Canil
  *
  * @author ricardo
  */
-class Localizacao extends Product{
-    private $idLocalizacao;
+class Canil extends Product{
+    private $idCanil;
+    private $nomeCanil;
     private $endereco;
     private $bairro;
     private $cidade;
     private $uf;
     
     public function __construct(array $dados) {
-        $this->setIdLocalizacao(isset($dados["id_localizacao"])?$dados["id_localizacao"]:0)
+        $this->setIdCanil(isset($dados["id_localizacao"])?$dados["id_localizacao"]:0)
+             ->setNomeCanil($dados["nome_canil"])
              ->setBairro($dados["bairro"])
              ->setCidade($dados["cidade"])
              ->setEndereco($dados["endereco"])
              ->setUf($dados["uf"]);
     }
     
-    public function getIdLocalizacao() {
-        return $this->idLocalizacao;
+    public function getIdCanil() {
+        return $this->idCanil;
+    }
+    
+    public function getNomeCanil() {
+        return $this->nomeCanil;
     }
 
     public function getEndereco() {
@@ -41,12 +47,17 @@ class Localizacao extends Product{
         return $this->uf;
     }
 
-    public function setIdLocalizacao($idLocalizacao) {
-        $this->idLocalizacao = filter_var($idLocalizacao,FILTER_SANITIZE_NUMBER_INT);
+    public function setIdCanil($idCanil) {
+        $this->idCanil = filter_var($idCanil,FILTER_SANITIZE_NUMBER_INT);
         return $this;
     }
 
-    public function setEndereco($endereco) {
+    public function setNomeCanil($nomeCanil) {
+        $this->nomeCanil = filter_var($nomeCanil,FILTER_SANITIZE_STRING);
+        return $this;
+    }
+
+        public function setEndereco($endereco) {
         $this->endereco = filter_var($endereco,FILTER_SANITIZE_STRING);
         return $this;
     }
@@ -68,7 +79,8 @@ class Localizacao extends Product{
 
     public function getParams() {
         return array(
-            "id_localizacao" => \PDO::PARAM_INT,
+            "id_canil" => \PDO::PARAM_INT,
+            "nome_canil" => \PDO::PARAM_STR,
             "bairro" => \PDO::PARAM_STR,
             "cidade" => \PDO::PARAM_STR,
             "endereco" => \PDO::PARAM_STR,
@@ -78,7 +90,8 @@ class Localizacao extends Product{
 
     public function getValues() {
         return array(
-            "id_localizacao" => $this->getIdLocalizacao(),
+            "id_canil" => $this->getIdCanil(),
+            "nome_canil" => $this->getNomeCanil(),
             "bairro" => $this->getBairro(),
             "cidade" => $this->getCidade(),
             "endereco" => $this->getEndereco(),
