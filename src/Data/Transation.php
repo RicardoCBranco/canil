@@ -1,9 +1,6 @@
 <?php
 namespace CasteloBranco\Canil\Data;
 use CasteloBranco\Canil\Data\Table\SelectData;
-
-
-
 /**
  * Description of Transation
  *
