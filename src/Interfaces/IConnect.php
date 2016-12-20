@@ -9,7 +9,7 @@ interface IConnect {
     const USER = "root";
     const PSWD = "root";
     const HOST = "localhost";
-    const DBNAME = "ensino";
+    const DBNAME = "canil";
     const DRIVER = "mysql";
     const CHARSET = "SET NAMES UTF8";
     /**
