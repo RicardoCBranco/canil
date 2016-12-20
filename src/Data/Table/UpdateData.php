@@ -1,11 +1,12 @@
 <?php
 namespace CasteloBranco\Canil\Data\Table;
+use CasteloBranco\Canil\Data\DataSet;
 /**
  * Description of UpdateData
  *
  * @author Ricardo
  */
-class UpdateData extends \CasteloBranco\Canil\Data\DataSet{
+class UpdateData extends DataSet{
     private $tblName;
     private $cols = array();
     private $order = array();

@@ -14,20 +14,24 @@ interface ITabela {
    /**
     * 
     * @param type $classe
+    * @return  int Retorna a última chave inserida
     */
    public static function update($classeAnt,$classePos);
    /**
     * 
-    * @param array $id
+    * @param array recebe um array com o id
+    * @return void
     */
-   public static function delete(array $id);
+   public static function delete($id);
    /**
     * 
-    * @param array $id
+    * @param array recebe um array com os ids.
+    * @return array recebe com os dados do id.
     */
-   public static function find(array $id);
+   public static function find($id);
    /**
     * 
+    * @return Classe retorna uma classe povoada
     */
    public static function findAll();
 }

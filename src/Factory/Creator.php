@@ -8,11 +8,14 @@ namespace CasteloBranco\Canil\Factory;
  * @author Antonio Ricardo Andrade Castelo Branco
  */
 class Creator {   
-    /*
+    /**
      * Método responsável pela instanciação e população de um objeto, são reque-
      * ridos dois parametros o primeiro uma String contendo o namespace para a
      * classe que será instanciada, o segundo um array contendo os dados que
      * irão popular o objeto.
+     * @param recebe o nome da classe e os dados que irão povoar a classe.
+     * 
+     * @return retorna uma Classe
      */
     public static function factoryMethod($namespace, array $data){
         /*

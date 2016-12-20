@@ -9,8 +9,7 @@ namespace CasteloBranco\Canil\Data;
 class ClientDataSet {
     private $table;
     public function mountTable(){
-        $table = new Table\SelectData($this->table);
-        return $table;
+        return new Table\SelectData($this->table);
     }
     
     public function getTable(Table\SelectData $table){
@@ -29,7 +28,7 @@ class ClientDataSet {
         return $ds->row();
     }
     
-    public function doInsert(\CasteloBranco\Canil\Factory\Product $classe){
+    public function doInsert($classe){
         $ds = new Table\InsertData($this->table);
         $ds->setParams($classe->getParams());
         $ds->setCols(array_keys($classe->getValues()));
