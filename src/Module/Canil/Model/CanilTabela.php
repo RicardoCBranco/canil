@@ -9,36 +9,36 @@ use CasteloBranco\Canil\Interfaces\ITabela;
  */
 class CanilTabela implements ITabela{
     public static function getInstancia() {
-        $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
-        $ds->setTable("canil");
+        $ds = new \CasteloBranco\Canil\Data\Transation("canil");
         return $ds;
     }
     
-    public static function delete(array $id) {
+    public static function delete($id) {
         $ds = self::getInstancia();
-        $ds->doDelete($id);
+        $ds->delete($id);
     }
 
-    public static function find(array $id) {
+    public static function find($id) {
         $ds = self::getInstancia();
         return \CasteloBranco\Canil\Factory\Creator::
-                factoryMethod(Canil::class, $ds->getRow($id));
+                factoryMethod(Canil::class, $ds->find($id));
     }
 
     public static function findAll() {
         $ds = self::getInstancia();
-        $table = $ds->mountTable();
-        return $ds->getTable($table);
+        $table = $ds->getTable();
+        $ds->setTable($table);
+        return $ds->findAll();
     }
 
     public static function insert($classe) {
         $ds = self::getInstancia();
-        return $ds->doInsert($classe);
+        return $ds->insert($classe);
     }
 
     public static function update($classeAnt, $classePos) {
         $ds = self::getInstancia();
-        $ds->doUpdate($classeAnt, $classePos);
+        $ds->update($classeAnt, $classePos);
     }
 
 }

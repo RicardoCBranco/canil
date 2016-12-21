@@ -8,35 +8,36 @@ namespace CasteloBranco\Canil\Module\Perfil\Model;
  */
 class PerfilTabela implements \CasteloBranco\Canil\Interfaces\ITabela{
     public static function getInstancia() {
-        $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
-        $ds->setTable("perfil");
-        return $ds;
+        $tr = new \CasteloBranco\Canil\Data\Transation("perfil");
+        return $tr;
     }
     
-    public static function delete(array $id) {
-        
+    public static function delete($id) {
+        $tr = self::getInstancia();
+        $tr->delete($id);
     }
 
-    public static function find(array $id) {
-        $ds = self::getInstancia();
-        $dados = $ds->getRow($id);
+    public static function find($id) {
+        $tr = self::getInstancia();
+        $dados = $tr->find($id);
         return \CasteloBranco\Canil\Factory\Creator::factoryMethod(Perfil::class,$dados);
     }
 
     public static function findAll() {
-        $ds = self::getInstancia();
-        $table = $ds->mountTable();
-        return $ds->getTable($table);
+        $tr = self::getInstancia();
+        $table = $tr->getTable();
+        $tr->setTable($table);
+        return $tr->findAll();
     }
 
     public static function insert($classe) {
         $ds = self::getInstancia();
-        $ds->doInsert($classe);
+        return $ds->insert($classe);
     }
 
     public static function update($classeAnt, $classePos) {
         $ds = self::getInstancia();
-        $ds->doUpdate($classeAnt, $classePos);
+        $ds->update($classeAnt, $classePos);
     }
 
 }

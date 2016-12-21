@@ -8,38 +8,37 @@ namespace CasteloBranco\Canil\Module\Pessoa\Model;
  */
 class PessoaTabela implements \CasteloBranco\Canil\Interfaces\ITabela{
     public static function getInstancia() {
-        $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
-        return $ds->setTable("pessoa");
+        $tr = new \CasteloBranco\Canil\Data\Transation("pessoa");
+        return $tr;
     }
 
     
-    public static function delete(array $id) {
-        
+    public static function delete($id) {
+        $tr = self::getInstancia();
+        $tr->delete($id);
     }
 
-    public static function find(array $id) {
-        $ds = self::getInstancia();
-        $dados = $ds->getRow($id);
+    public static function find($id) {
+        $tr = self::getInstancia();
+        $dados = $tr->find($id);
         return \CasteloBranco\Canil\Factory\Creator::
                 factoryMethod(Pessoa::class, $dados);
     }
 
     public static function findAll() {
-        $ds = self::getInstancia();
-        $table = $ds->mountTable();
-        return $ds->getTable($table);
+        $tr = self::getInstancia();
+        $table = $tr->getTable();
+        $tr->setTable($table);
+        return $tr->findAll();
     }
 
     public static function insert($classe) {
-        $ds = self::getInstancia();
-        return $ds->doInsert($classe);
+        $tr = self::getInstancia();
+        return $tr->insert($classe);
     }
 
     public static function update($classeAnt, $classePos) {
-        $ds = self::getInstancia();
-        $ds->doUpdate($classeAnt, $classePos);
+        $tr = self::getInstancia();
+        $tr->update($classeAnt, $classePos);
     }
-
-
-
 }

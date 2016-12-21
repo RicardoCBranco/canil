@@ -8,37 +8,35 @@ namespace CasteloBranco\Canil\Module\Raca\Model;
  */
 class RacaTabela implements \CasteloBranco\Canil\Interfaces\ITabela {    
     public static function getInstancia() {
-        $ds = new \CasteloBranco\Canil\Data\ClientDataSet();
-        $ds->setTable("raca");
-        return $ds;
+       $tr = new \CasteloBranco\Canil\Data\Transation("raca");
+       return $tr;
     }
 
     
-    public static function delete(array $id) {
-        $ds = self::getInstancia();
-        $ds->doDelete($id);
+    public static function delete($id) {
+        $tr = self::getInstancia();
+        $tr->delete($id);
     }
 
-    public static function find(array $id) {
-        $ds = self::getInstancia();
-        return $ds->getRow($id);
+    public static function find($id) {
+        $tr = self::getInstancia();
+        return $tr->find($id);
     }
 
     public static function findAll() {
-        $ds = self::getInstancia();
-        $table = $ds->mountTable();
-        return $ds->getTable($table);
+        $tr = self::getInstancia();
+        $table = $tr->getTable();
+        $tr->setTable($table);
+        return $tr->findAll();
     }
 
     public static function insert($classe) {
-        $ds = self::getInstancia();
-        $ds->doInsert($classe);
+        $tr = self::getInstancia();
+        return $tr->insert($classe);
     }
 
     public static function update($classeAnt, $classePos) {
-        $ds = self::getInstancia();
-        $ds->doUpdate($classeAnt, $classePos);
+        $tr = self::getInstancia();
+        $tr->update($classeAnt, $classePos);
     }
-
-
 }
